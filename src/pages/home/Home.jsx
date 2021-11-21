@@ -6,7 +6,7 @@ import Footer from '../../components/footer/Footer'
 const Home = () => {
     return (
         <>
-            <div className="container p-0 header-main" style={{ fontamily: "'Poppins', sans-serif" }}>
+            <div className="container p-0 header-main" style={{ fontFamily: "'Poppins', sans-serif" }}>
                 <Header />
             </div>
             <div className="feature">
