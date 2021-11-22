@@ -1,0 +1,22 @@
+.card-history{
+    background-color: transparent;
+    border-color: #6D8A48;
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+.date{
+    color: #EEEEEE;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.card-desc{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.amount-text{
+    font-weight: bold;
+    font-size: 25px;
+}

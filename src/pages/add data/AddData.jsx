@@ -1,4 +1,5 @@
-import BoxCard from '../../components/box card/BoxCard'
+import ExpenseFormCard from '../../components/expense form card/ExpenseFormCard'
+import IncomeFormCard from '../../components/income form card/IncomeFormCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './AddData.css'
 
@@ -16,10 +17,10 @@ const AddData = () => {
                         </div>
                         <div className="row">
                             <div className="col-md-6">
-                                <BoxCard />
+                                <ExpenseFormCard />
                             </div>
                             <div className="col-md-6">
-                                <BoxCard />
+                                <IncomeFormCard />
                             </div>
                         </div>
                     </div>

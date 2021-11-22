@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div class="sidenav">
+    <div className="sidenav">
       <a href="/#" className="mt-5">
         <img className="logo"
           src={logo} alt="logo"></img>

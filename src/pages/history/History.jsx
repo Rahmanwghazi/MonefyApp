@@ -1,4 +1,4 @@
-import BoxCard from '../../components/box card/BoxCard'
+import OutlinedCard from '../../components/outlined card/OutlinedCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './History.css'
 
@@ -15,18 +15,17 @@ const History = () => {
                             <p>History</p>
                         </div>
                         <div className="row">
-                            <div className="col-md-6">
-                                <BoxCard />
-                            </div>
-                            <div className="col-md-6">
-                                <BoxCard />
-                            </div>
+                                <OutlinedCard />
+                        </div>
+                        <div className="row">
+                                <OutlinedCard />
                         </div>
                     </div>
                 </div>
             </div>
         </>
     )
+    
 }
 
 export default History

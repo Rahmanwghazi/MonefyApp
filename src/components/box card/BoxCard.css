@@ -1,0 +1,16 @@
+.box-card{
+    background-color: #3164B6;
+    height: 350px;
+    border-radius: 15px;
+}
+
+.card-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-text{
+    font-size: 40px;
+    font-weight: bolder;
+    margin-top: 100px;
+}

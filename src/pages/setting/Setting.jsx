@@ -1,4 +1,3 @@
-import BoxCard from '../../components/box card/BoxCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './Setting.css'
 
@@ -16,10 +15,10 @@ const Setting = () => {
                     </div>
                     <div className="row">
                         <div className="col-md-6">
-                            <BoxCard />
+                            
                         </div>
                         <div className="col-md-6">
-                            <BoxCard />
+                            
                         </div>
                     </div>
                 </div>

@@ -2,11 +2,10 @@ import './BoxCard.css'
 
 const BoxCard = () => {
     return (
-        <div class="card text-white bg-dark mb-3">
-            <div class="card-header">Header</div>
-            <div class="card-body">
-                <h5 class="card-title">Dark card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div className="card text-white bg-dark mb-3">
+            <div className="card-body box-card">
+                <h5 className="card-title text-center">Total Income</h5>
+                <p className="card-text text-center">Rp 32.000.000</p>
             </div>
         </div>
     )
