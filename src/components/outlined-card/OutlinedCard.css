@@ -1,6 +1,13 @@
-.card-history{
+.card.income{
     background-color: transparent;
     border-color: #6D8A48;
+    border-radius: 15px;
+    border-width: 2px;
+}
+
+.card.expense{
+    background-color: transparent;
+    border-color: #FD7014;
     border-radius: 15px;
     border-width: 2px;
 }

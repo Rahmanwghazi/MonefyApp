@@ -15,10 +15,10 @@ const History = () => {
                             <p>History</p>
                         </div>
                         <div className="row">
-                                <OutlinedCard />
+                                <OutlinedCard type="card expense" date="25 oct 2021" desc="Beli mouse" amount="350.000"/>
                         </div>
                         <div className="row">
-                                <OutlinedCard />
+                                <OutlinedCard type="card income"ate="30 oct 2021" desc="Gaji magang" amount="2.500.000"/>
                         </div>
                     </div>
                 </div>

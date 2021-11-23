@@ -1,18 +1,12 @@
 .expense-form-card{
     background-color: #FD7014;
-    height: 680px;
+    height: 658px;
     border-radius: 15px;
 }
 
 .card-title{
     font-size: 30px;
     font-weight: bold;
-}
-
-.card-text{
-    font-size: 40px;
-    font-weight: bolder;
-    margin-top: 100px;
 }
 
 input.transparent-input{
@@ -23,7 +17,7 @@ input.transparent-input{
 
 .income-form-card{
     background-color: #6D8A48;
-    height: 680px;
+    height: 658px;
     border-radius: 15px;
 }
 
@@ -51,7 +45,6 @@ input.transparent-input{
 .card-text{
     font-size: 40px;
     font-weight: bolder;
-    margin-top: 100px;
 }
 
 .btn-p {

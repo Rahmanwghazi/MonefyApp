@@ -1,4 +1,4 @@
-import BoxCard from '../../components/box card/BoxCard'
+import BoxCard from '../../components/box-card/BoxCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './Recommendation.css'
 
@@ -16,10 +16,18 @@ const Recommendation = () => {
                         </div>
                         <div className="row">
                             <div className="col-md-6">
-                                <BoxCard />
+                                <BoxCard type="card-body box-card-1" content="50/30/20 rule"/>
                             </div>
                             <div className="col-md-6">
-                                <BoxCard />
+                                <BoxCard title="Needs (50%)" type="card-body box-card-2" content="Rp 25.000.000"/>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6">
+                                <BoxCard title="Wants (30%)" type="card-body box-card-3" content="Rp 15.000.000"/>
+                            </div>
+                            <div className="col-md-6">
+                                <BoxCard title="Savings (20%)" type="card-body box-card-4" content="Rp 10.000.000" />
                             </div>
                         </div>
                     </div>
