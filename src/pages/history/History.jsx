@@ -1,4 +1,4 @@
-import OutlinedCard from '../../components/outlined card/OutlinedCard'
+import OutlinedCard from '../../components/outlined-card/OutlinedCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './History.css'
 

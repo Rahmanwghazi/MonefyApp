@@ -3,7 +3,7 @@ import easyImg from '../../assets/easy.png'
 import ideaImg from '../../assets/idea.png'
 import strategyImg from '../../assets/strategy.png'
 
-const Feature = () => {
+const Feature = (props) => {
   return (
     <><div className="content container-xxl mx-auto p-0  position-relative" style={{ fontFamily: "'Poppins', sans-serif" }}>
       <div className="text-center title-text">

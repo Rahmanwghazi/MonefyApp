@@ -1,10 +1,10 @@
-import './ExpenseFormCard.css'
+import './FormCard.css'
 
 const ExpenseFormCard = () => {
     return (
         <div className="card text-white bg-dark mb-3">
             <div className="card-body form-card expense-form-card">
-                <h5 className="card-title text-center">Add Expenses</h5>
+                <h5 className="card-title text-center">Add Expense</h5>
                 <form>
                     <div className="form-group">
                         <label>Amount  </label>

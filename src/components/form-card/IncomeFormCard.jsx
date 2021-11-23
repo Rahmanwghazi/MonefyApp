@@ -1,4 +1,4 @@
-import './IncomeFormCard.css'
+import './FormCard.css'
 
 const IncomeFormCard = () => {
     return (
@@ -8,7 +8,7 @@ const IncomeFormCard = () => {
                 <form>
                     <div className="form-group">
                         <label>Amount  </label>
-                        <input type="text" id="name" className="form-control transparent-input"/>
+                        <input type="text" id="name" className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label>Category</label>

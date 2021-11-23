@@ -1,5 +1,5 @@
-import ExpenseFormCard from '../../components/expense form card/ExpenseFormCard'
-import IncomeFormCard from '../../components/income form card/IncomeFormCard'
+import ExpenseFormCard from '../../components/form-card/ExpenseFormCard'
+import IncomeFormCard from '../../components/form-card/IncomeFormCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './AddData.css'
 

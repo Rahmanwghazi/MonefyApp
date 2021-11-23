@@ -19,4 +19,5 @@
 .amount-text{
     font-weight: bold;
     font-size: 25px;
+    text-align: right;
 }
