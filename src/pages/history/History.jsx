@@ -1,9 +1,13 @@
 import OutlinedCard from '../../components/outlined-card/OutlinedCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './History.css'
+import { useQuery } from '@apollo/client'
+import { GetRecord } from '../../graphql/Queries'
 
 const History = () => {
-    return(
+    const { loading, data } = useQuery(GetRecord)
+
+    return (
         <>
             <div className="container mt-5">
                 <div className="row">
@@ -15,17 +19,22 @@ const History = () => {
                             <p>History</p>
                         </div>
                         <div className="row">
-                                <OutlinedCard type="card expense" date="25 oct 2021" desc="Beli mouse" amount="350.000"/>
-                        </div>
-                        <div className="row">
-                                <OutlinedCard type="card income"ate="30 oct 2021" desc="Gaji magang" amount="2.500.000"/>
+                            {
+                                loading ? <h5 className="text-white">Loading...</h5> : <br />
+                            }
+                            {data?.records.map(item => (
+                                item.type === "expense" ?
+                                    <OutlinedCard type="card expense" date={item.date} desc={item.notes} amount={item.amount} />
+                                    : <OutlinedCard type="card income" date={item.date} desc={item.notes} amount={item.amount} />
+
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
         </>
     )
-    
+
 }
 
 export default History

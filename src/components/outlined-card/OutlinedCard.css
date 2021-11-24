@@ -28,3 +28,9 @@
     font-size: 25px;
     text-align: right;
 }
+
+.mutation-button{
+    text-align: end;
+    margin-right: 20px;
+    margin-top: -20px;
+}
