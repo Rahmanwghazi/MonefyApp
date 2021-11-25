@@ -16,6 +16,14 @@ mutation MyMutation($id: Int) {
 }
 `
 
+export const UpdateRecord = gql`
+mutation MyMutation($amount: Int, $category: String, $date: date, $notes: String, $type: String, $id: Int) {
+  update_records(where: {id: {_eq: $id}}, _set: {amount: $amount, category: $category, date: $date, notes: $notes, type: $type}) {
+    affected_rows
+  }
+}
+`
+
 
 
   

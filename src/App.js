@@ -3,7 +3,7 @@ import Home from './pages/home/Home';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signin from './components/signin/Signin';
 import Dashboard from './pages/dashboard/Dashboard';
-import AddData from './pages/add data/AddData';
+import AddData from './pages/add-data/AddData';
 import History from './pages/history/History';
 import Recommendation from './pages/recommendation/Recommendation';
 import Setting from './pages/setting/Setting';

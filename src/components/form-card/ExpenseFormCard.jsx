@@ -1,6 +1,5 @@
 import './FormCard.css'
 import { useState } from "react";
-import "react-datepicker/dist/react-datepicker.css";
 
 const ExpenseFormCard = (props) => {
     const [state, setState] = useState({

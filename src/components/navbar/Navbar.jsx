@@ -13,7 +13,7 @@ const Navbar = () => {
         <span className="navbar-toggler-icon"></span>
       </button>
 
-      <div className="modal-item modal fade" id="targetModal-item" tabindex="-1" role="dialog"
+      <div className="modal-item modal fade" id="targetModal-item" tabIndex="-1" role="dialog"
         aria-labelledby="targetModalLabel" aria-hidden="true">
         <div className="modal-dialog" role="document">
           <div className="modal-content border-0">
@@ -77,7 +77,7 @@ const Navbar = () => {
           <button type="button" className="btn btn-default btn-no-fill" data-bs-toggle="modal" data-bs-target="#modalForm">
             Sign in
           </button>
-          <div className="modal fade mt-5" id="modalForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade mt-5" id="modalForm" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog">
               <div className="modal-content">
                 <div className="logo-modal">
@@ -97,7 +97,7 @@ const Navbar = () => {
                     </div>
                     <div className="mb-3 form-check">
                       <input type="checkbox" className="form-check-input" id="rememberMe" />
-                      <label className="form-check-label text-white" for="rememberMe">Remember me</label>
+                      <label className="form-check-label text-white" htmlFor="rememberMe">Remember me</label>
                     </div>
                     <Link to="/dashboard">
                     <button type="submit" className="btn btn-signin">Sign In</button>

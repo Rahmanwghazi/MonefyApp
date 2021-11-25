@@ -37,3 +37,29 @@
     margin-bottom: 10px;
     padding: 0px;
 }
+
+.label-modal.edit{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group{
+    text-align: left;
+}
+
+.btn-e {
+    background-color: #FD7014;
+    color: black;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 90%;
+    height: 50px;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.btn-e:hover {
+    background-color: #EEEEEE;
+    color: black
+}

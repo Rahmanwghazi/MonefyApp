@@ -35,23 +35,21 @@ const AddData = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9">
-                    <div className="title-page row">
+                        <div className="title-page row">
                             <div className="col">
                                 <p>Add Data</p>
                             </div>
                             <div className="col">
-                                {loading ? <Messaging color="#FD7014" width="15px" height="15px"/> : <br />}
+                                {loading ? <Messaging color="#FD7014" width="15px" height="15px" /> : <br />}
                             </div>
                         </div>
                         <div className="row">
-                                <>
-                                    <div className="col-md-6">
-                                        <ExpenseFormCard addNewRecord={addNewRecord} />
-                                    </div>
-                                    <div className="col-md-6">
-                                        <IncomeFormCard addNewRecord={addNewRecord} />
-                                    </div>
-                                </>
+                            <div className="col-md-6">
+                                <ExpenseFormCard addNewRecord={addNewRecord} />
+                            </div>
+                            <div className="col-md-6">
+                                <IncomeFormCard addNewRecord={addNewRecord} />
+                            </div>
                         </div>
                     </div>
                 </div>
