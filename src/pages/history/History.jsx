@@ -47,14 +47,14 @@ const History = () => {
                                 <p>History</p>
                             </div>
                             <div className="col">
-                                {loadingGetRecord || loadingDelete || loadingUpdate ? <Messaging color="#FD7014" width="15px" height="15px" /> : <br />}
+                                {loadingGetRecord || loadingDelete || loadingUpdate ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
                             </div>
                         </div>
                         <div className="row">
                             {data?.records.map(item => (
                                 item.type === "expense" ?
-                                    <OutlinedCard key={item.id} type="card expense" id={item.id} date={item.date} desc={item.notes} amount={item.amount} deleteRecord={deleteRecord} updateRecord={updateRecord} />
-                                    : <OutlinedCard key={item.id} type="card income" id={item.id} date={item.date} desc={item.notes} amount={item.amount} deleteRecord={deleteRecord} updateRecord={updateRecord} />
+                                    <OutlinedCard key={item.id} type="card expense" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
+                                    : <OutlinedCard key={item.id} type="card income" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
 
                             ))}
                         </div>

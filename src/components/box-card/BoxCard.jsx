@@ -10,6 +10,7 @@ const BoxCard = (props) => {
                 {props.title === "Graph" ? <MonefyChart /> : null}
                 </div>
                 <p className="card-text text-center"> {props.content}</p>
+                <p className="text-center">{props.avg}</p>
             </div>
         </div>
     )

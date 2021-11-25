@@ -4,6 +4,7 @@ import deletePng from '../../assets/trash-bin.png'
 import { useState } from "react";
 
 const OutlinedCard = (props) => {
+    const { data, type, deleteRecord, updateRecord } = props
 
     const formatRupiah = (money) => {
         return new Intl.NumberFormat('id-ID',
@@ -11,14 +12,16 @@ const OutlinedCard = (props) => {
         ).format(money);
     }
 
-    const formattedMoney = formatRupiah(props.amount)
+    const formattedMoney = formatRupiah(data.amount)
     const [state, setState] = useState({
-        amount: props.amount,
-        category: props.category,
-        notes: props.notes,
-        date: props.date,
-        type: props.type
+        amount: data.amount,
+        category: data.category,
+        notes: data.notes,
+        date: data.date,
+        type: data.type
     })
+
+    const [check, setCheck] = useState(false);
 
     const onChange = e => {
         setState({
@@ -27,39 +30,41 @@ const OutlinedCard = (props) => {
         })
     }
 
-    const onUpdate = e => {
+
+    const onUpdate = () => {
         const newRecord = {
             amount: state.amount,
             category: state.category,
             date: state.date,
             notes: state.notes,
-            type: state.type
+            type: check === true ? "expense" : "income"
         }
-        props.updateRecord(props.id, newRecord)
+        updateRecord(data.id, newRecord)
     }
 
     return (
         <div className="outlined-card mb-3">
-            <div className={props.type}>
+            <div className={type}>
                 <div className="card-body date">
-                    <p>{props.date}</p>
+                    <p>{data.date}</p>
                     <div className="row">
                         <div className="col-6">
-                            <h5 className="card-desc">{props.desc}</h5>
+                            <h5 className="card-desc">{data.notes}</h5>
                         </div>
                         <div className="col-6 mb-4">
                             <h5 className="amount-text">
-                                {props.type === "card income" ? "+ " : "- "}
+                                {type === "card income" ? "+ " : "- "}
                                 {formattedMoney}</h5>
                         </div>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-10">
+                        <h5 className="category-desc">{data.category}</h5>
                     </div>
-                    <div className="col mutation-button">
-                        <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target={`#modalForm${props.id}`}></img>
-                        <div className="modal fade mt-5" id={`modalForm${props.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="col mutation-button edit">
+                        <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target={`#modalForm${data.id}`}></img>
+                        <div className="modal fade mt-5" id={`modalForm${data.id}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-body">
@@ -72,14 +77,25 @@ const OutlinedCard = (props) => {
                                             <div className="form-group text-white">
                                                 <label>Category</label>
                                                 <select className="form-control" name="category" value={state.category} onChange={onChange} >
-                                                    <option value="" defaultValue >Select</option>
-                                                    <option value="Food">Food</option>
-                                                    <option value="Education">Education</option>
-                                                    <option value="Sport">Sport</option>
-                                                    <option value="Hobby">Hobby</option>
-                                                    <option value="Health">Health</option>
-                                                    <option value="Investment">Investment</option>
-                                                    <option value="Other">Other</option>
+                                                    {
+                                                        check === true ?
+                                                            <>
+                                                                <option value="" defaultValue>Select</option>
+                                                                <option value="Food">Food</option>
+                                                                <option value="Education">Education</option>
+                                                                <option value="Sport">Sport</option>
+                                                                <option value="Hobby">Hobby</option>
+                                                                <option value="Health">Health</option>
+                                                                <option value="Investment">Investment</option>
+                                                                <option value="Other">Other</option>
+                                                            </> : <>
+                                                                <option value="Salary">Salary</option>
+                                                                <option value="Bonus">Bonus</option>
+                                                                <option value="Gift">Gift</option>
+                                                                <option value="Other">Other</option>
+                                                            </>
+                                                    }
+
                                                 </select>
                                             </div>
                                             <div className="form-group text-white" >
@@ -92,9 +108,13 @@ const OutlinedCard = (props) => {
                                             </div>
                                             <div className="form-group text-white">
                                                 <label>Type  </label>
-                                                <input type="text" className="form-control" value={state.type} name="type" onChange={onChange} />
+                                                <label className="switch">
+                                                    <input type="checkbox" value={check === true ? "expense" : "income"} name="type" onClick={() => setCheck(!check)} />
+                                                    <span className="slider round"></span>
+                                                </label>
+                                                {check ? <p className="text-center mt-2">expense</p> : <p className="text-center mt-2">income</p>}
                                             </div>
-                                            <button onClick={onUpdate} type="submit" className="btn btn-e mb-5" >
+                                            <button onClick={onUpdate} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
                                                 update
                                             </button>
                                         </div>
@@ -103,8 +123,8 @@ const OutlinedCard = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div className="col mutation-button">
-                        <img src={deletePng} alt="delete" onClick={() => props.deleteRecord(props.id)}></img>
+                    <div className="col mutation-button delete">
+                        <img src={deletePng} alt="delete" onClick={() => deleteRecord(data.id)}></img>
                     </div>
                 </div>
 

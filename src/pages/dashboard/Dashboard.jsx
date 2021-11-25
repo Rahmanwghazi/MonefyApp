@@ -1,8 +1,24 @@
+import { useQuery } from "@apollo/client"
+import { Messaging } from "react-cssfx-loading/lib"
 import BoxCard from "../../components/box-card/BoxCard"
-import MonefyChart from "../../components/chart/MonefyChart"
 import Sidebar from "../../components/sidebar/Sidebar"
+import { GetSumExpenseRecord, GetSumIncomeRecord } from "../../graphql/Queries"
 import './Dashboard.css'
 const Dashboard = () => {
+    const { loading: loadingIncome, data: dataIncome } = useQuery(GetSumIncomeRecord)
+    const { loading: loadingExpense, data: dataExpense } = useQuery(GetSumExpenseRecord)
+
+    const formatRupiah = (money) => {
+        return new Intl.NumberFormat('id-ID',
+            { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
+        ).format(money);
+    }
+
+    const formattedIncomeAmount = formatRupiah(dataIncome?.records_aggregate.aggregate.sum.amount)
+    const formattedExpenseAmount = formatRupiah(dataExpense?.records_aggregate.aggregate.sum.amount)
+    const balance = dataIncome?.records_aggregate.aggregate.sum.amount - dataExpense?.records_aggregate.aggregate.sum.amount
+    const formattedBalance = formatRupiah(balance)
+
     return (
         <>
             <div className="container mt-5">
@@ -16,7 +32,7 @@ const Dashboard = () => {
                         </div>
                         <div className="row">
                             <div className="col-md-6">
-                                <BoxCard title="Total Balance" type="card-body box-card-1" content="Rp 17.000.000"/>
+                                <BoxCard title="Total Balance" type="card-body box-card-1" content={loadingIncome || loadingExpense ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" /> : formattedBalance} />
                             </div>
                             <div className="col-md-6">
                                 <BoxCard title="Graph" type="card-body box-card-2" />
@@ -24,10 +40,10 @@ const Dashboard = () => {
                         </div>
                         <div className="row">
                             <div className="col-md-6">
-                                <BoxCard title="Total Expense" type="card-body box-card-3" content="Rp 15.000.000"/>
+                                <BoxCard title="Total Expense" type="card-body box-card-3" content={ loadingExpense ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" /> : formattedExpenseAmount} />
                             </div>
                             <div className="col-md-6">
-                                <BoxCard title="Total Income" type="card-body box-card-4" content="Rp 35.090.000"/>
+                                <BoxCard title="Total Income" type="card-body box-card-4" content={loadingIncome ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" /> : formattedIncomeAmount} />
                             </div>
                         </div>
                     </div>

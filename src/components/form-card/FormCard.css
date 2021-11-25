@@ -1,7 +1,8 @@
 .expense-form-card{
     background-color: #FD7014;
-    height: 658px;
+    height: 659px;
     border-radius: 15px;
+    margin-top: -17px;
 }
 
 .card-title{
@@ -17,8 +18,10 @@ input.transparent-input{
 
 .income-form-card{
     background-color: #6D8A48;
-    height: 658px;
+    height: 659px;
     border-radius: 15px;
+    margin-top: -17px;
+    
 }
 
 .card-title{

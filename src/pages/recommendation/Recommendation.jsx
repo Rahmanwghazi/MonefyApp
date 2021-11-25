@@ -1,9 +1,19 @@
+import { useQuery } from '@apollo/client'
+import { Messaging } from 'react-cssfx-loading/lib'
 import BoxCard from '../../components/box-card/BoxCard'
 import Sidebar from '../../components/sidebar/Sidebar'
+import { GetAverageIncome } from '../../graphql/Queries'
 import './Recommendation.css'
 
 const Recommendation = () => {
-    return(
+    const { loading, data } = useQuery(GetAverageIncome)
+    const formatRupiah = (money) => {
+        return new Intl.NumberFormat('id-ID',
+            { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
+        ).format(money);
+    }
+
+    return (
         <>
             <div className="container mt-5">
                 <div className="row">
@@ -11,31 +21,42 @@ const Recommendation = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9">
-                        <div className="title-page">
-                            <p>Recommendation</p>
-                        </div>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <BoxCard type="card-body box-card-1" content="50/30/20 rule"/>
+                    <div className="title-page row">
+                            <div className="col">
+                                <p>Setting</p>
                             </div>
-                            <div className="col-md-6">
-                                <BoxCard title="Needs (50%)" type="card-body box-card-2" content="Rp 25.000.000"/>
+                            <div className="col">
+                                {loading ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-md-6">
-                                <BoxCard title="Wants (30%)" type="card-body box-card-3" content="Rp 15.000.000"/>
-                            </div>
-                            <div className="col-md-6">
-                                <BoxCard title="Savings (20%)" type="card-body box-card-4" content="Rp 10.000.000" />
-                            </div>
-                        </div>
+                        {data?.recommendation.map(item => (
+                            <><div className="row">
+
+                                <div className="col-md-6">
+
+                                    <BoxCard type="card-body box-card-1" content="50/30/20 rule"
+                                        avg={"your average monthly income: " + formatRupiah(item.averageIncome)} />
+
+                                </div>
+
+                                <div className="col-md-6">
+                                    <BoxCard title="Needs (50%)" type="card-body box-card-2" content={formatRupiah((50/100)*item.averageIncome)} />
+                                </div>
+                            </div><div className="row">
+                                    <div className="col-md-6">
+                                        <BoxCard title="Wants (30%)" type="card-body box-card-3" content={formatRupiah((30/100)*item.averageIncome)} />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <BoxCard title="Savings (20%)" type="card-body box-card-4" content={formatRupiah((20/100)*item.averageIncome)}/>
+                                    </div>
+                                </div></>
+                        ))}
                     </div>
                 </div>
             </div>
         </>
-        
-        
+
+
     )
 }
 

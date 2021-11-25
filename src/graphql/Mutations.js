@@ -24,6 +24,21 @@ mutation MyMutation($amount: Int, $category: String, $date: date, $notes: String
 }
 `
 
+export const addAverageIncome = gql`
+mutation MyMutation($averageIncome: Int) {
+  insert_recommendation(objects: {averageIncome: $averageIncome}) {
+    affected_rows
+  }
+}
+`
+export const UpdateAverageIncome = gql`
+mutation MyMutation($averageIncome: Int, $id: Int) {
+  update_recommendation(where: {id: {_eq: $id}}, _set: {averageIncome: $averageIncome}) {
+    affected_rows
+  }
+}
+`
+
 
 
   

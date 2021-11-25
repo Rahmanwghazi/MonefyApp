@@ -3,3 +3,15 @@
     font-weight: bold;
     font-size: 40px;
 }
+
+.btn-u {
+    float:left;
+    background-color: #FD7014;
+    color: black;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    width: 20%;
+    height: 50px;
+    margin-top: 50px;
+}
