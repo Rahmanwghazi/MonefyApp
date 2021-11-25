@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import './AddData.css'
 import { useMutation } from '@apollo/client'
 import { AddRecord } from '../../graphql/Mutations'
+import Messaging from "react-cssfx-loading/lib/Messaging";
 
 const AddData = () => {
 
@@ -34,16 +35,23 @@ const AddData = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9">
-                        <div className="title-page">
-                            <p>Add Data</p>
+                    <div className="title-page row">
+                            <div className="col">
+                                <p>Add Data</p>
+                            </div>
+                            <div className="col">
+                                {loading ? <Messaging color="#FD7014" width="15px" height="15px"/> : <br />}
+                            </div>
                         </div>
                         <div className="row">
-                            <div className="col-md-6">
-                                <ExpenseFormCard addNewRecord={addNewRecord} />
-                            </div>
-                            <div className="col-md-6">
-                                <IncomeFormCard addNewRecord={addNewRecord} />
-                            </div>
+                                <>
+                                    <div className="col-md-6">
+                                        <ExpenseFormCard addNewRecord={addNewRecord} />
+                                    </div>
+                                    <div className="col-md-6">
+                                        <IncomeFormCard addNewRecord={addNewRecord} />
+                                    </div>
+                                </>
                         </div>
                     </div>
                 </div>

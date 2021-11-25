@@ -1,6 +1,5 @@
 import './FormCard.css'
 import { useState } from "react";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const ExpenseFormCard = (props) => {
@@ -28,12 +27,20 @@ const ExpenseFormCard = (props) => {
             type: state.type
         }
         props.addNewRecord(newRecord)
+        setState({
+            ...state,
+            amount: "",
+            category: "",
+            notes: "",
+            date: "",
+            type: ""
+        })
     }
     return (
         <div className="card text-white bg-dark mb-3">
             <div className="card-body form-card expense-form-card">
                 <h5 className="card-title text-center">Add Expense</h5>
-                <form>
+                <div onSubmit={onSubmit}>
                     <div className="form-group">
                         <label>Amount  </label>
                         <input type="number" className="form-control" placeholder="120.000" value={state.amount} name="amount" onChange={onChange} />
@@ -57,10 +64,13 @@ const ExpenseFormCard = (props) => {
                     </div>
                     <div className="form-group">
                         <label>Notes  </label>
-                        <input type="text" id="notes" className="form-control" />
+                        <input type="text" className="form-control" value={state.notes} name="notes" onChange={onChange} />
                     </div>
-                    <button onClick={onSubmit} type="submit" className="btn btn-p"> Submit </button>
-                </form>
+                    <button onClick={onSubmit} type="submit" className="btn btn-p" 
+                        disabled={state.amount.length < 1 || state.category.length <1 || state.date.length < 1 || state.notes.length < 1 }>
+                        Submit 
+                    </button>
+                </div>
             </div>
         </div>
     )

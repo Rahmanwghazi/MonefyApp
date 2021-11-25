@@ -1,11 +1,22 @@
 import OutlinedCard from '../../components/outlined-card/OutlinedCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './History.css'
-import { useQuery } from '@apollo/client'
+import { useMutation, useQuery } from '@apollo/client'
 import { GetRecord } from '../../graphql/Queries'
+import Messaging from "react-cssfx-loading/lib/Messaging";
+import { DeleteRecord } from '../../graphql/Mutations'
 
 const History = () => {
-    const { loading, data } = useQuery(GetRecord)
+    const { loading: loadingGetRecord, data } = useQuery(GetRecord)
+    const [deleteRecordById, { loading: loadingDelete }] = useMutation(DeleteRecord, {
+        refetchQueries: [GetRecord]
+    })
+
+    const deleteRecord = (id) => {
+        deleteRecordById({
+            variables: { id }
+        })
+    }
 
     return (
         <>
@@ -15,17 +26,19 @@ const History = () => {
                         <Sidebar />
                     </div>
                     <div className="col-md-9">
-                        <div className="title-page">
-                            <p>History</p>
+                        <div className="title-page row">
+                            <div className="col">
+                                <p>History</p>
+                            </div>
+                            <div className="col">
+                                {loadingGetRecord || loadingDelete ? <Messaging color="#FD7014" width="15px" height="15px"/> : <br />}
+                            </div>
                         </div>
                         <div className="row">
-                            {
-                                loading ? <h5 className="text-white">Loading...</h5> : <br />
-                            }
                             {data?.records.map(item => (
                                 item.type === "expense" ?
-                                    <OutlinedCard type="card expense" date={item.date} desc={item.notes} amount={item.amount} />
-                                    : <OutlinedCard type="card income" date={item.date} desc={item.notes} amount={item.amount} />
+                                    <OutlinedCard key={item.id} type="card expense" id={item.id} date={item.date} desc={item.notes} amount={item.amount} deleteRecord={deleteRecord} />
+                                    : <OutlinedCard key={item.id} type="card income" id={item.id} date={item.date} desc={item.notes} amount={item.amount} deleteRecord={deleteRecord} />
 
                             ))}
                         </div>

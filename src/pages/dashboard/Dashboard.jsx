@@ -3,7 +3,6 @@ import MonefyChart from "../../components/chart/MonefyChart"
 import Sidebar from "../../components/sidebar/Sidebar"
 import './Dashboard.css'
 const Dashboard = () => {
-    console.log(MonefyChart)
     return (
         <>
             <div className="container mt-5">

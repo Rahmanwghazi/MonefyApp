@@ -1,6 +1,6 @@
 import './OutlinedCard.css'
-
-
+import editPng from '../../assets/edit.png'
+import deletePng from '../../assets/trash-bin.png'
 
 const OutlinedCard = (props) => {
 
@@ -11,7 +11,7 @@ const OutlinedCard = (props) => {
     }
 
     const formattedMoney = formatRupiah(props.amount)
-
+  
     return (
         <div className="outlined-card mb-3">
             <div className={props.type}>
@@ -22,16 +22,21 @@ const OutlinedCard = (props) => {
                             <h5 className="card-desc">{props.desc}</h5>
                         </div>
                         <div className="col-6 mb-4">
-                            <h5 className="amount-text"> {formattedMoney}</h5>
+                            <h5 className="amount-text">
+                                {props.type === "card income" ? "+ " : "- "}
+                                {formattedMoney}</h5>
                         </div>
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col mutation-button">
-                        <p className="text-white">edit</p>
+                    <div className="col-10">
+
                     </div>
-                    <div className="col-1 mutation-button">
-                        <p className="text-white">delete</p>
+                    <div className="col mutation-button">
+                        <img src={editPng} alt="edit"></img>
+                    </div>
+                    <div className="col mutation-button">
+                        <img src={deletePng} alt="edit" onClick={() => props.deleteRecord(props.id)}></img>
                     </div>
                 </div>
 

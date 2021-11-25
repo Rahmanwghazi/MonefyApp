@@ -8,6 +8,14 @@ mutation MyMutation($amount: Int!, $category: String!, $date: date!, $notes: Str
   }
 `
 
+export const DeleteRecord = gql`
+mutation MyMutation($id: Int) {
+  delete_records(where: {id: {_eq: $id}}) {
+    affected_rows
+  }
+}
+`
+
 
 
   

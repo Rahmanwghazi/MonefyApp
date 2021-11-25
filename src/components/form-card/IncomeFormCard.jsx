@@ -12,8 +12,8 @@ const IncomeFormCard = (props) => {
 
     const onChange = e => {
         setState({
-          ...state,
-          [e.target.name]: e.target.value,
+            ...state,
+            [e.target.name]: e.target.value,
         })
     }
 
@@ -26,13 +26,21 @@ const IncomeFormCard = (props) => {
             type: state.type
         }
         props.addNewRecord(newRecord)
+        setState({
+            ...state,
+            amount: "",
+            category: "",
+            notes: "",
+            date: "",
+            type: ""
+        })
     }
-  
+
     return (
         <div className="card text-white bg-dark mb-3">
             <div className="card-body form-card income-form-card">
                 <h5 className="card-title text-center">Add Income</h5>
-                <form>
+                <div onSubmit={onSubmit}>
                     <div className="form-group">
                         <label>Amount  </label>
                         <input type="number" className="form-control" placeholder="120.000" value={state.amount} name="amount" onChange={onChange} />
@@ -49,14 +57,17 @@ const IncomeFormCard = (props) => {
                     </div>
                     <div className="form-group">
                         <label>Date </label>
-                        <input type="date" className="form-control"  value={state.date} name="date" onChange={onChange} />
+                        <input type="date" className="form-control" value={state.date} name="date" onChange={onChange} />
                     </div>
                     <div className="form-group">
                         <label>Notes  </label>
                         <input type="text" className="form-control" placeholder="gaji november" value={state.notes} name="notes" onChange={onChange} />
                     </div>
-                    <button onClick={onSubmit} type="submit" className="btn btn-p"> Submit </button>
-                </form>
+                    <button onClick={onSubmit} type="submit" className="btn btn-p"
+                        disabled={state.amount.length < 1 || state.category.length < 1 || state.date.length < 1 || state.notes.length < 1}>
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
     )
