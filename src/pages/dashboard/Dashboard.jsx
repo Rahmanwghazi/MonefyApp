@@ -1,19 +1,14 @@
-import { useQuery } from "@apollo/client"
 import { Messaging } from "react-cssfx-loading/lib"
 import BoxCard from "../../components/box-card/BoxCard"
 import Sidebar from "../../components/sidebar/Sidebar"
-import { GetSumExpenseRecord, GetSumIncomeRecord } from "../../graphql/Queries"
+import { useGetSumExpense } from "../../hooks/useGetSumExpense"
+import { useGetSumIncome } from "../../hooks/useGetSumIncome"
+import { formatRupiah } from "../../utils/FormatterRupiah"
 import './Dashboard.css'
+
 const Dashboard = () => {
-    const { loading: loadingIncome, data: dataIncome } = useQuery(GetSumIncomeRecord)
-    const { loading: loadingExpense, data: dataExpense } = useQuery(GetSumExpenseRecord)
-
-    const formatRupiah = (money) => {
-        return new Intl.NumberFormat('id-ID',
-            { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
-        ).format(money);
-    }
-
+    const { dataIncome, loadingIncome } = useGetSumIncome()
+    const { loadingExpense, dataExpense } = useGetSumExpense()
     const formattedIncomeAmount = formatRupiah(dataIncome?.records_aggregate.aggregate.sum.amount)
     const formattedExpenseAmount = formatRupiah(dataExpense?.records_aggregate.aggregate.sum.amount)
     const balance = dataIncome?.records_aggregate.aggregate.sum.amount - dataExpense?.records_aggregate.aggregate.sum.amount

@@ -4,14 +4,11 @@
     font-size: 40px;
 }
 
-.btn-u {
-    float:left;
-    background-color: #FD7014;
-    color: black;
-    border-radius: 10px;
-    font-size: 22px;
+
+
+.avgUser{
+    color: #EEEEEE;
+    font-size: 50px;
+    margin-top: 20px;
     font-weight: bold;
-    width: 20%;
-    height: 50px;
-    margin-top: 50px;
 }

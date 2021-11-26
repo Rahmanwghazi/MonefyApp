@@ -1,19 +1,15 @@
 import OutlinedCard from '../../components/outlined-card/OutlinedCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import './History.css'
-import { useMutation, useQuery } from '@apollo/client'
-import { GetRecord } from '../../graphql/Queries'
 import Messaging from "react-cssfx-loading/lib/Messaging";
-import { DeleteRecord, UpdateRecord } from '../../graphql/Mutations'
+import { useGetRecords } from '../../hooks/useGetRecords'
+import { useDeleteRecord } from '../../hooks/useDeleteRecord'
+import { useUpdateRecord } from '../../hooks/useUpdateRecord'
 
 const History = () => {
-    const { loading: loadingGetRecord, data } = useQuery(GetRecord)
-    const [deleteRecordById, { loading: loadingDelete }] = useMutation(DeleteRecord, {
-        refetchQueries: [GetRecord]
-    })
-    const [updateRecordById, { loading: loadingUpdate }] = useMutation(UpdateRecord, {
-        refetchQueries: [GetRecord]
-    })
+    const { loadingGetRecord, data } = useGetRecords()
+    const { deleteRecordById, loadingDelete } = useDeleteRecord()
+    const { updateRecordById, loadingUpdate } = useUpdateRecord()
 
     const deleteRecord = (id) => {
         deleteRecordById({

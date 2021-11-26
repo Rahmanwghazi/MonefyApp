@@ -34,7 +34,7 @@ const MonefyChart = (props) => {
           pieStartAngle: 100,
           chartArea:{width:"100%",height:"100%"},
           backgroundColor: 'transparent',
-          colors: ['#3164B6', '#6D8A48', '#FD7014']
+          colors: ['#6D8A48', '#FD7014']
         }}
         rootProps={{ 'data-testid': '3' }}
       />

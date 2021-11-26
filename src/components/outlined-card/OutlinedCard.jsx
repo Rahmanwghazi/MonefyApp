@@ -2,15 +2,10 @@ import './OutlinedCard.css'
 import editPng from '../../assets/edit.png'
 import deletePng from '../../assets/trash-bin.png'
 import { useState } from "react";
+import { formatRupiah } from '../../utils/FormatterRupiah';
 
 const OutlinedCard = (props) => {
     const { data, type, deleteRecord, updateRecord } = props
-
-    const formatRupiah = (money) => {
-        return new Intl.NumberFormat('id-ID',
-            { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }
-        ).format(money);
-    }
 
     const formattedMoney = formatRupiah(data.amount)
     const [state, setState] = useState({
@@ -114,7 +109,7 @@ const OutlinedCard = (props) => {
                                                 </label>
                                                 {check ? <p className="text-center mt-2">expense</p> : <p className="text-center mt-2">income</p>}
                                             </div>
-                                            <button onClick={onUpdate} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
+                                            <button onClick={onUpdate} style={{marginTop:"-20px"}} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
                                                 update
                                             </button>
                                         </div>
