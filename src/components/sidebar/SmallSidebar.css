@@ -1,0 +1,25 @@
+.small-sidenav a {
+    padding: 5px 8px 5px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #EEEEEE;
+    display: block;
+}
+
+.small-sidenav a:hover {
+    color: #EEEEEE;
+    font-weight: bold;
+}
+
+.active{
+    font-weight: bold;
+}
+
+.main {
+    font-size: 28px;
+    padding: 0px 10px;
+}
+
+.nav-items{
+    color: #EEEEEE!important;
+}

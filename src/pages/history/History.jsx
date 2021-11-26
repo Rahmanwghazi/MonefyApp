@@ -5,6 +5,7 @@ import Messaging from "react-cssfx-loading/lib/Messaging";
 import { useGetRecords } from '../../hooks/useGetRecords'
 import { useDeleteRecord } from '../../hooks/useDeleteRecord'
 import { useUpdateRecord } from '../../hooks/useUpdateRecord'
+import SmallSidebar from '../../components/sidebar/SmallSidebar';
 
 const History = () => {
     const { loadingGetRecord, data } = useGetRecords()
@@ -34,8 +35,11 @@ const History = () => {
         <>
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3 d-none d-xxl-block">
                         <Sidebar />
+                    </div>
+                    <div className="col-md-3 d-xxl-none">
+                        <SmallSidebar />
                     </div>
                     <div className="col-md-9">
                         <div className="title-page row">
@@ -51,7 +55,6 @@ const History = () => {
                                 item.type === "expense" ?
                                     <OutlinedCard key={item.id} type="card expense" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
                                     : <OutlinedCard key={item.id} type="card income" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
-
                             ))}
                         </div>
                     </div>

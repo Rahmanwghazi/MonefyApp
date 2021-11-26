@@ -1,6 +1,6 @@
 import './Navbar.css'
 import logo from '../../assets/logo.png'
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Navbar = () => {
   return (
@@ -29,16 +29,16 @@ const Navbar = () => {
             <div className="modal-body">
               <ul className="navbar-nav responsive me-auto mt-2 mt-lg-0">
                 <li className="nav-item active">
-                  <Link to="/" className="nav-link" style={{ color: "#E7E7E8" }}>Home</Link>
+                  <Link smooth to="#" className="nav-link" style={{ color: "#E7E7E8" }}>Home</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/#">Feature</a>
+                  <Link smooth to="#feature" className="nav-link">Feature</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/#">Tips</a>
+                  <Link smooth to="#tips" className="nav-link">Tips</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/#">About</a>
+                  <Link smooth to="#about" className="nav-link">About</Link>
                 </li>
                 <li className="nav-item">
                   <Link to="/dahsboard" className="nav-link" href="/#">Dashboard</Link>
@@ -57,17 +57,17 @@ const Navbar = () => {
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo">
         <ul className="navbar-nav me-auto mt-2 mt-lg-0">
-          <li className="nav-item active">
-            <Link to="/" className="nav-link" href="/#" style={{ color: "#E7E7E8" }}>Home</Link>
+          <li className="nav-item">
+            <Link smooth to="/" className="nav-link">Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#">Feature</a>
+            <Link smooth to="#feature" className="nav-link">Feature</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#">Tips</a>
+            <Link smooth to="#tips" className="nav-link">Tips</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="/#">About</a>
+            <Link smooth to="#about" className="nav-link">About</Link>
           </li>
           <li className="nav-item">
             <Link to="/dashboard" className="nav-link" href="/#">Dashboard</Link>
@@ -100,7 +100,7 @@ const Navbar = () => {
                       <label className="form-check-label text-white" htmlFor="rememberMe">Remember me</label>
                     </div>
                     <Link to="/dashboard">
-                    <button type="submit" className="btn btn-signin">Sign In</button>
+                      <button type="submit" className="btn btn-signin">Sign In</button>
                     </Link>
                   </form>
                 </div>

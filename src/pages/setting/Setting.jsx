@@ -5,11 +5,12 @@ import { Messaging } from "react-cssfx-loading/lib";
 import { formatRupiah } from "../../utils/FormatterRupiah";
 import { useGetAverageIncome } from "../../hooks/useGetAverageIncome";
 import { useUpdateAverageIncome } from "../../hooks/useUpdateAverageIncome";
+import SmallSidebar from "../../components/sidebar/SmallSidebar";
+import editPng from '../../assets/edit.png'
 
 const Setting = () => {
     const { data, loading } = useGetAverageIncome()
     const { updateAvg, loadingUpdate } = useUpdateAverageIncome()
-    
     const [avg, setAvg] = useState(data?.recommendation.map(item => (item.averageIncome)))
     const updateAverageIncome = (updated) => {
         updateAvg({
@@ -33,8 +34,11 @@ const Setting = () => {
         <>
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3 d-none d-xxl-block">
                         <Sidebar />
+                    </div>
+                    <div className="col-md-3 d-xxl-none">
+                        <SmallSidebar />
                     </div>
                     <div className="col-md-9">
                         <div className="title-page row">
@@ -48,7 +52,7 @@ const Setting = () => {
                         <h3 className="" style={{ color: "#EEEEEE" }} >Average monthly income</h3>
                         <h4 className="avgUser">{formatRupiah(data?.recommendation.map(item => (item.averageIncome)))}</h4>
                         <div className="col mutation-button edit">
-                            <p className="text-white" alt="edit" data-bs-toggle="modal" data-bs-target="#modalForm">Edit</p>
+                            <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target="#modalForm" ></img>
                             <div className="modal fade mt-5" id="modalForm" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div className="modal-dialog">
                                     <div className="modal-content">

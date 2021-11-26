@@ -3,13 +3,12 @@ import IncomeFormCard from '../../components/form-card/IncomeFormCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import { v4 as uuidv4 } from 'uuid'
 import './AddData.css'
-import { useMutation } from '@apollo/client'
-import { AddRecord } from '../../graphql/Mutations'
 import Messaging from "react-cssfx-loading/lib/Messaging";
+import { useAddRecord } from '../../hooks/useAddRecord'
+import SmallSidebar from '../../components/sidebar/SmallSidebar'
 
 const AddData = () => {
-
-    const [addRecord, { loading }] = useMutation(AddRecord)
+    const {addRecord, loading } = useAddRecord()
 
     const addNewRecord = (record) => {
         const newRecord = {
@@ -31,8 +30,11 @@ const AddData = () => {
         <>
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3 d-none d-xxl-block">
                         <Sidebar />
+                    </div>
+                    <div className="col-md-3 d-xxl-none">
+                        <SmallSidebar />
                     </div>
                     <div className="col-md-9">
                         <div className="title-page row">

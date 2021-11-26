@@ -1,6 +1,7 @@
 import { Messaging } from "react-cssfx-loading/lib"
 import BoxCard from "../../components/box-card/BoxCard"
 import Sidebar from "../../components/sidebar/Sidebar"
+import SmallSidebar from "../../components/sidebar/SmallSidebar"
 import { useGetSumExpense } from "../../hooks/useGetSumExpense"
 import { useGetSumIncome } from "../../hooks/useGetSumIncome"
 import { formatRupiah } from "../../utils/FormatterRupiah"
@@ -18,8 +19,11 @@ const Dashboard = () => {
         <>
             <div className="container mt-5">
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3 d-none d-xxl-block">
                         <Sidebar />
+                    </div>
+                    <div className="col-md-3 d-xxl-none">
+                        <SmallSidebar />
                     </div>
                     <div className="col-md-9">
                         <div className="title-page">
