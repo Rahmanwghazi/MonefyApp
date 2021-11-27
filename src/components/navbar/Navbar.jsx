@@ -1,6 +1,8 @@
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import { HashLink as Link } from 'react-router-hash-link';
+import { SigninModal } from '../modals/SigninModal';
+import { SignupModal } from '../modals/SignupModal';
 
 const Navbar = () => {
   return (
@@ -46,7 +48,7 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="modal-footer border-0 gap-3">
-              <Link to="/signin">
+              <Link to="/#">
                 <button className="btn btn-default btn-no-fill">Sign In</button>
               </Link>
               <button className="btn btn-fill border-0 text-white">Try Now</button>
@@ -77,37 +79,11 @@ const Navbar = () => {
           <button type="button" className="btn btn-default btn-no-fill" data-bs-toggle="modal" data-bs-target="#modalForm">
             Sign in
           </button>
-          <div className="modal fade mt-5" id="modalForm" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <div className="logo-modal">
-                  <img className="logo" src={logo} alt="logo"></img>
-                </div>
-                <div className="modal-body">
-                  <h5 className="label-modal">Sign in</h5>
-                  <p className="float-start text-modal">Not have an account yet? <a href="/#">Sign Up</a></p>
-                  <form className="form-modal">
-                    <div className="mb-3 mt-5">
-                      <label className="form-label">Email Address</label>
-                      <input type="text" className="form-control" id="username" name="username" placeholder="user@gmail.com" />
-                    </div>
-                    <div className="mb-3">
-                      <label className="form-label">Password</label>
-                      <input type="password" className="form-control" id="password" name="password" placeholder="Password" />
-                    </div>
-                    <div className="mb-3 form-check">
-                      <input type="checkbox" className="form-check-input" id="rememberMe" />
-                      <label className="form-check-label text-white" htmlFor="rememberMe">Remember me</label>
-                    </div>
-                    <Link to="/dashboard">
-                      <button type="submit" className="btn btn-signin">Sign In</button>
-                    </Link>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button className="btn btn-fill text-white border-0">Try Now</button>
+          <SigninModal />
+          <button className="btn btn-fill text-white border-0" data-bs-toggle="modal" data-bs-target="#modalFormSignup">
+            Try Now
+          </button>
+          <SignupModal />
         </div>
       </div>
     </nav>
