@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Messaging } from "react-cssfx-loading/lib";
 import { useUpdateAverageIncome } from "../../hooks/useUpdateAverageIncome";
 
-export const EditAvgIncome = (props) => {
+export const EditAvgIncomeModal = (props) => {
     const initAvg = props.data?.recommendation.map(item => (item.averageIncome))
     const { updateAvg, loadingUpdate } = useUpdateAverageIncome()
     const [avg, setAvg] = useState(initAvg)
@@ -44,7 +44,7 @@ export const EditAvgIncome = (props) => {
                                 <label>Average Income  </label>
                                 <input type="number" className="form-control" value={avg} name="amount" onChange={onChange} />
                             </div>
-                            <button onClick={onUpdate} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal">
+                            <button onClick={onUpdate} type="submit" className="btn btn-e mb-5" data-bs-dismiss="modal" disabled={avg===""}>
                                 update
                             </button>
                         </div>

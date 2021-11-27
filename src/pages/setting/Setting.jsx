@@ -5,7 +5,7 @@ import { formatRupiah } from "../../utils/FormatterRupiah";
 import { useGetAverageIncome } from "../../hooks/useGetAverageIncome";
 import SmallSidebar from "../../components/sidebar/SmallSidebar";
 import editPng from '../../assets/edit.png'
-import { EditAvgIncome } from "../../components/modals/EditAvgIncome";
+import { EditAvgIncomeModal } from "../../components/modals/EditAvgIncomeModal";
 
 const Setting = () => {
     const { data, loading } = useGetAverageIncome()
@@ -32,7 +32,7 @@ const Setting = () => {
                         <h4 className="avgUser">{formatRupiah(data?.recommendation.map(item => (item.averageIncome)))}</h4>
                         <div className="col mutation-button edit">
                             <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target="#modalForm" ></img>
-                            <EditAvgIncome data={data} />
+                            <EditAvgIncomeModal data={data} />
                         </div>
                     </div>
                 </div>
