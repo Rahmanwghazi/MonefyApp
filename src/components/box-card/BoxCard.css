@@ -1,0 +1,37 @@
+.box-card-1{
+    background-color: #3164B6;
+    height: 320px;
+    border-radius: 15px;
+}
+
+.box-card-2{
+    background-color: #393E46;
+    height: 320px;
+    border-radius: 15px;
+}
+.box-card-3{
+    background-color: #FD7014;
+    height: 320px;
+    border-radius: 15px;
+}
+.box-card-4{
+    background-color: #6D8A48;
+    height: 320px;
+    border-radius: 15px;
+}
+
+.card-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-text{
+    margin-top: 90px;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.graph{
+    margin-top: 30px;
+    margin-left: 120px;
+}

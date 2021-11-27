@@ -1,0 +1,12 @@
+.feature{
+    padding-top: 80px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    background-color: #222831;
+}
+
+.footer{
+    padding-top: 80px!important;
+    box-sizing: border-box;
+    background-color: #222831;   
+}

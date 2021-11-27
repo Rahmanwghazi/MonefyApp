@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.list-space {
+    margin-bottom: 1.25rem;
+}
+
+.footer-text-title {
+    font: 600 1.5rem Poppins, sans-serif;
+    margin-bottom: 1.5rem;
+}
+
+.list-menu {
+    color: #E7E7E7;
+    text-decoration: none !important;
+}
+
+.list-menu:hover {
+    color: #FD7014;
+}
+
+hr.hr {
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #E7E7E7;
+}
+
+.border-color {
+    color: #E7E7E7;
+}
+
+.footer-link {
+    color: #E7E7E7;
+}
+
+.footer-link:hover {
+    color: #FD7014;
+}
+
+.social-media-c:hover circle,
+.social-media-p:hover path {
+    fill: #FD7014;
+}
+
+.footer-info-space {
+    padding-top: 3rem;
+}
+
+.list-footer {
+    padding: 5rem 1rem 3rem 1rem;
+}
+
+.info-footer {
+    padding: 0 1rem 3rem;
+}
+
+.logo {
+    width: 50px;
+}
+
+@media (min-width: 576px) {
+    .list-footer {
+        padding: 5rem 2rem 3rem 3rem;
+    }
+    .info-footer {
+        padding: 0 2rem 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .list-footer {
+        padding: 5rem 4rem 6rem 4rem;
+    }
+
+    .info-footer {
+        padding: 0 4rem 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .list-footer {
+        padding: 5rem 0rem 5rem 0rem;
+    }
+
+    .info-footer {
+        padding: 0rem 0rem 3rem;
+    }
+}

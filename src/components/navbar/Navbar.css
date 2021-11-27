@@ -1,0 +1,21 @@
+.logo{
+    margin-right: 0.75rem;
+    width: 50px;
+}
+.modal-content{
+    background-color: #222831;
+}
+.modal-header{
+    padding: 2rem;
+}
+
+.modal-body{
+    padding: 2rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.modal-footer{
+    padding: 2rem;
+    padding-top: 0.75rem;
+}
