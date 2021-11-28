@@ -67,14 +67,14 @@ const History = () => {
                         {
                             check ?
                                 <div className="row">
-                                    {dataAsc?.records.map(item => (
+                                    {dataAsc?.record.map(item => (
                                         item.type === "expense" ?
                                             <OutlinedCard key={item.id} type="card expense" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
                                             : <OutlinedCard key={item.id} type="card income" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
                                     ))}
                                 </div> :
                                 <div className="row">
-                                    {dataDesc?.records.map(item => (
+                                    {dataDesc?.record.map(item => (
                                         item.type === "expense" ?
                                             <OutlinedCard key={item.id} type="card expense" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />
                                             : <OutlinedCard key={item.id} type="card income" data={item} deleteRecord={deleteRecord} updateRecord={updateRecord} />

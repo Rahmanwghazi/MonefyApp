@@ -7,7 +7,7 @@ import { ApolloProvider } from "@apollo/client";
 import client from './apollo-client';
 
 ReactDOM.render(
-  <ApolloProvider client={client}>
+  <ApolloProvider client={client}> 
     <React.StrictMode>
       <App />
     </React.StrictMode>

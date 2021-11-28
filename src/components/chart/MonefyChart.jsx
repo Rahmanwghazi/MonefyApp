@@ -9,8 +9,8 @@ const MonefyChart = () => {
     const { loading: loadingExpense, data: dataExpense } = useQuery(GetSumExpenseRecord)
 
 
-    const IncomeAmount = dataIncome?.records_aggregate.aggregate.sum.amount
-    const ExpenseAmount = dataExpense?.records_aggregate.aggregate.sum.amount
+    const IncomeAmount = dataIncome?.record_aggregate.aggregate.sum.amount
+    const ExpenseAmount = dataExpense?.record_aggregate.aggregate.sum.amount
 
     if (loadingIncome || loadingExpense ){
       return(

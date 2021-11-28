@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client'
 
 export const AddRecord = gql`
-mutation MyMutation($amount: Int!, $category: String!, $date: date!, $notes: String!, $type: String!) {
-    insert_records(objects: {amount: $amount, category: $category, date: $date, notes: $notes, type: $type}) {
+mutation MyMutation($amount: Int!, $category: String!, $date: date!, $notes: String!, $type: String!, $userId: String!) {
+    insert_record(objects: {amount: $amount, category: $category, date: $date, notes: $notes, type: $type, user_id: $userId}) {
       affected_rows
     }
   }
@@ -10,7 +10,7 @@ mutation MyMutation($amount: Int!, $category: String!, $date: date!, $notes: Str
 
 export const DeleteRecord = gql`
 mutation MyMutation($id: Int) {
-  delete_records(where: {id: {_eq: $id}}) {
+  delete_record(where: {id: {_eq: $id}}) {
     affected_rows
   }
 }
@@ -18,7 +18,7 @@ mutation MyMutation($id: Int) {
 
 export const UpdateRecord = gql`
 mutation MyMutation($amount: Int, $category: String, $date: date, $notes: String, $type: String, $id: Int) {
-  update_records(where: {id: {_eq: $id}}, _set: {amount: $amount, category: $category, date: $date, notes: $notes, type: $type}) {
+  update_record(where: {id: {_eq: $id}}, _set: {amount: $amount, category: $category, date: $date, notes: $notes, type: $type}) {
     affected_rows
   }
 }

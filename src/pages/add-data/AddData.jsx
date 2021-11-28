@@ -9,7 +9,7 @@ import SmallSidebar from '../../components/sidebar/SmallSidebar'
 
 const AddData = () => {
     const {addRecord, loading } = useAddRecord()
-
+    const userId = localStorage.getItem('auth0:id_token:sub');
     const addNewRecord = (record) => {
         const newRecord = {
             id: uuidv4(),
@@ -21,7 +21,8 @@ const AddData = () => {
                 category: newRecord.category,
                 date: newRecord.date,
                 notes: newRecord.notes,
-                type: newRecord.type
+                type: newRecord.type,
+                userId: userId
             }
         })
     }

@@ -1,10 +1,17 @@
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import { HashLink as Link } from 'react-router-hash-link';
-import { SigninModal } from '../modals/SigninModal';
-import { SignupModal } from '../modals/SignupModal';
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const { isAuthenticated } = props.auth
+
+  // useEffect(()=>{
+  //   if (isAuthenticated()) {
+  //     navigate('/dashboard');
+  //   }
+  // },[])
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <a href="/#">
@@ -72,18 +79,32 @@ const Navbar = () => {
             <Link smooth to="#about" className="nav-link">About</Link>
           </li>
           <li className="nav-item">
-            <Link to="/dashboard" className="nav-link" href="/#">Dashboard</Link>
+            {
+              isAuthenticated() ? <Link to="/dashboard" className="nav-link" href="/#">Dashboard</Link> :
+                <p className="nav-link" style={{ cursor: "pointer" }} onClick={() => props.auth.login()}>Dashboard</p>
+            }
           </li>
         </ul>
         <div className="gap-3">
-          <button type="button" className="btn btn-default btn-no-fill" data-bs-toggle="modal" data-bs-target="#modalForm">
-            Sign in
-          </button>
-          <SigninModal />
-          <button className="btn btn-fill text-white border-0" data-bs-toggle="modal" data-bs-target="#modalFormSignup">
-            Try Now
-          </button>
-          <SignupModal />
+          {
+            !isAuthenticated() && (
+              <>
+                <button type="button" className="btn btn-default btn-no-fill" onClick={() => props.auth.login()}>
+                  Sign in
+                </button>
+                <button className="btn btn-fill text-white border-0" onClick={() => props.auth.login()} >
+                  Try Now
+                </button>
+              </>
+            )
+          }
+          {
+            isAuthenticated() && (
+              <button type="button" className="btn btn-default btn-no-fill">
+                Hi, User
+              </button>
+            )
+          }
         </div>
       </div>
     </nav>

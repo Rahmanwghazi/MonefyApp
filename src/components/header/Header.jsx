@@ -2,10 +2,10 @@ import './Header.css'
 import img from '../../assets/illustration.svg'
 import Navbar from '../navbar/Navbar'
 
-const Header = () =>{
+const Header = (props) =>{
     return(
         <div>
-          <Navbar />
+          <Navbar auth={props.auth}/>
         <div className="mx-auto d-flex flex-lg-row flex-column hero mt-5">
           <div
             className="left-column d-flex flex-lg-grow-1 flex-column align-items-lg-start text-lg-start align-items-center text-center">

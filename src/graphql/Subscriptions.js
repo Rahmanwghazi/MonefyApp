@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 export const GetRecordSubDesc = gql`
 subscription MySubscription($id: order_by = desc) {
-    records(order_by: {id: $id}) {
+    record(order_by: {id: $id}) {
       id
       amount
       date
@@ -15,7 +15,7 @@ subscription MySubscription($id: order_by = desc) {
 
 export const GetRecordSubAsc = gql`
 subscription MySubscription($id: order_by = asc) {
-    records(order_by: {id: $id}) {
+    record(order_by: {id: $id}) {
       id
       amount
       date
