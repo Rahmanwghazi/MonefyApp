@@ -23,7 +23,7 @@ const ExpenseFormCard = (props) => {
             category: state.category,
             date: state.date,
             notes: state.notes,
-            type: state.type
+            type: state.type,
         }
         props.addNewRecord(newRecord)
         setState({

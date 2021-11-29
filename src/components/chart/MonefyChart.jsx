@@ -1,16 +1,17 @@
 import { Chart } from "react-google-charts";
-import { useQuery } from "@apollo/client"
-import { GetSumExpenseRecord, GetSumIncomeRecord } from "../../graphql/Queries";
 import { Messaging } from "react-cssfx-loading/lib";
+import { useGetSumIncome } from "../../hooks/useGetSumIncome";
+import { useGetSumExpense } from "../../hooks/useGetSumExpense";
 
 
-const MonefyChart = (props) => {
-  const { loading: loadingIncome, data: dataIncome } = useQuery(GetSumIncomeRecord)
-    const { loading: loadingExpense, data: dataExpense } = useQuery(GetSumExpenseRecord)
+const MonefyChart = () => {
+
+    const { dataIncome, loadingIncome } = useGetSumIncome()
+    const { loadingExpense, dataExpense } = useGetSumExpense()
 
 
-    const IncomeAmount = dataIncome?.records_aggregate.aggregate.sum.amount
-    const ExpenseAmount = dataExpense?.records_aggregate.aggregate.sum.amount
+    const IncomeAmount = dataIncome?.record_aggregate.aggregate.sum.amount
+    const ExpenseAmount = dataExpense?.record_aggregate.aggregate.sum.amount
 
     if (loadingIncome || loadingExpense ){
       return(
@@ -22,7 +23,7 @@ const MonefyChart = (props) => {
         <Chart
         width={'200px'}
         height={'200px'}
-        chartType="PieChart"
+        chartType="BarChart"
         data={[
           ['Type','amount'],
           ['Total Income', IncomeAmount],
@@ -30,13 +31,17 @@ const MonefyChart = (props) => {
         ]}
         options={{
           legend: 'none',
-          pieSliceText: 'label',
-          pieStartAngle: 100,
-          chartArea:{width:"100%",height:"100%"},
-          backgroundColor: 'transparent',
-          colors: ['#6D8A48', '#FD7014']
+          chartArea:{width:"50%"},
+          backgroundColor: '#EEEEEE',
+          colors: ['#6D8A48', '#FD7014'],
+          hAxis: {
+            minValue: 0,
+          },
+          vAxis: {
+
+          },
         }}
-        rootProps={{ 'data-testid': '3' }}
+        rootProps={{ 'data-testid': '1' }}
       />
     );
 };

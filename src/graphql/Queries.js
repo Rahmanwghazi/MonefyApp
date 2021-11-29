@@ -2,7 +2,7 @@ import { gql } from '@apollo/client'
 
 export const GetRecord = gql`
 query MyQuery {
-    records(order_by: {id: desc}) {
+    record(order_by: {id: desc}) {
       id
       amount
       date
@@ -14,8 +14,8 @@ query MyQuery {
 `
 
 export const GetSumIncomeRecord = gql`
-query MyQuery {
-  records_aggregate(where: {type: {_eq: "income"}}) {
+query MyQuery($userId: String) {
+  record_aggregate(where:{_and: {}, user_id: {_eq: $userId}, type: {_eq: "income"}}) {
     aggregate {
       sum {
         amount
@@ -26,8 +26,8 @@ query MyQuery {
 `
 
 export const GetSumExpenseRecord = gql`
-query MyQuery {
-  records_aggregate(where: {type: {_eq: "expense"}}) {
+query MyQuery($userId: String) {
+  record_aggregate(where: {_and: {}, user_id: {_eq: $userId}, type: {_eq: "expense"}}) {
     aggregate {
       sum {
         amount
@@ -39,13 +39,17 @@ query MyQuery {
 
 export const GetAverageIncome = gql`
 query MyQuery {
-  recommendation {
-    id
-    averageIncome
+  user {
+    name
+    avg_income
   }
 }
 `
 
-
-
-  
+export const GetUsername = gql`
+query MyQuery {
+  user {
+    name
+  }
+}
+`
