@@ -32,8 +32,8 @@ mutation MyMutation($averageIncome: Int) {
 }
 `
 export const UpdateAverageIncome = gql`
-mutation MyMutation($averageIncome: Int, $id: Int) {
-  update_recommendation(where: {id: {_eq: $id}}, _set: {averageIncome: $averageIncome}) {
+mutation MyMutation($avg_income: Int, $userId: String) {
+  update_user(_set: {avg_income: $avg_income}, where: {auth0_id: {_eq: $userId}}) {
     affected_rows
   }
 }

@@ -3,18 +3,20 @@ import { Messaging } from "react-cssfx-loading/lib";
 import { useUpdateAverageIncome } from "../../hooks/useUpdateAverageIncome";
 
 export const EditAvgIncomeModal = (props) => {
-    const initAvg = props.data?.recommendation.map(item => (item.averageIncome))
+    const initAvg = props.data?.user.map(item => (item.avg_income))
     const { updateAvg, loadingUpdate } = useUpdateAverageIncome()
     const [avg, setAvg] = useState(initAvg)
+
+    const userId = localStorage.getItem('auth0:id_token:sub');
+
     const updateAverageIncome = (updated) => {
         updateAvg({
             variables: {
-                id: 1,
-                averageIncome: updated.averageIncome
+                avg_income: updated.averageIncome,
+                userId: userId
             }
         })
     }
-    console.log("avg ni", initAvg)
 
     const onUpdate = () => {
         const newAvg = { averageIncome: avg }

@@ -1,31 +1,18 @@
 import loading from './loading.svg';
 import Auth from './Auth';
 import { useEffect } from 'react';
+import { Messaging } from 'react-cssfx-loading/lib';
 
 const auth = new Auth();
 
 const Callback = () => {
   useEffect(() => {
       auth.handleAuthentication();
-  })
-
-  const style = {
-    position: 'absolute',
-    display: 'flex',
-    justifyContent: 'center',
-    height: '100vh',
-    width: '100vw',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: 'white',
-  }
+  },[])
 
   return (
-    <div style={style}>
-      <img src={loading} alt="loading" />
-      <p className="text-white">loading</p>
+    <div>
+      <Messaging style={{marginLeft: 50, marginTop: 50}} color="#EEEEEE" width="15px" height="15px" />
     </div>
   );
 

@@ -1,10 +1,12 @@
 import './Navbar.css'
 import logo from '../../assets/logo.png'
 import { HashLink as Link } from 'react-router-hash-link';
+import { useGetUsername } from '../../hooks/useGetUsername';
 
 const Navbar = (props) => {
 
   const { isAuthenticated } = props.auth
+  const { dataGetUsername } = useGetUsername()
 
   // useEffect(()=>{
   //   if (isAuthenticated()) {
@@ -100,9 +102,9 @@ const Navbar = (props) => {
           }
           {
             isAuthenticated() && (
-              <button type="button" className="btn btn-default btn-no-fill">
-                Hi, User
-              </button>
+              <p className="text-white">
+                Hi, {dataGetUsername?.user.map(item => (item.name))}
+              </p>
             )
           }
         </div>

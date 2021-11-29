@@ -7,7 +7,8 @@ import Messaging from "react-cssfx-loading/lib/Messaging";
 import { useAddRecord } from '../../hooks/useAddRecord'
 import SmallSidebar from '../../components/sidebar/SmallSidebar'
 
-const AddData = () => {
+const AddData = (props) => {
+    const { isAuthenticated } = props.auth
     const {addRecord, loading } = useAddRecord()
     const userId = localStorage.getItem('auth0:id_token:sub');
     const addNewRecord = (record) => {
@@ -26,6 +27,7 @@ const AddData = () => {
             }
         })
     }
+    if (isAuthenticated()){
 
     return (
         <>
@@ -59,6 +61,14 @@ const AddData = () => {
             </div>
         </>
     )
+    }
+    return (
+        <div className="container">
+            <h4 className="text-white text-center mt-5">
+                You are not logged in! Please <p style={{ cursor: 'pointer', fontWeight: "bolder" }} onClick={() => props.auth.login()}> Sign In </p> to continue.
+            </h4>
+        </div>
+    );
 }
 
 export default AddData

@@ -15,7 +15,7 @@ const Dashboard = (props) => {
     const formattedExpenseAmount = formatRupiah(dataExpense?.record_aggregate.aggregate.sum.amount)
     const balance = dataIncome?.record_aggregate.aggregate.sum.amount - dataExpense?.record_aggregate.aggregate.sum.amount
     const formattedBalance = formatRupiah(balance)
-    console.log("sprops", dataIncome)
+
     if (isAuthenticated()) {
         return (
             <>

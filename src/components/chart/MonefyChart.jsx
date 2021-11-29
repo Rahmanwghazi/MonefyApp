@@ -1,12 +1,13 @@
 import { Chart } from "react-google-charts";
-import { useQuery } from "@apollo/client"
-import { GetSumExpenseRecord, GetSumIncomeRecord } from "../../graphql/Queries";
 import { Messaging } from "react-cssfx-loading/lib";
+import { useGetSumIncome } from "../../hooks/useGetSumIncome";
+import { useGetSumExpense } from "../../hooks/useGetSumExpense";
 
 
 const MonefyChart = () => {
-  const { loading: loadingIncome, data: dataIncome } = useQuery(GetSumIncomeRecord)
-    const { loading: loadingExpense, data: dataExpense } = useQuery(GetSumExpenseRecord)
+
+    const { dataIncome, loadingIncome } = useGetSumIncome()
+    const { loadingExpense, dataExpense } = useGetSumExpense()
 
 
     const IncomeAmount = dataIncome?.record_aggregate.aggregate.sum.amount

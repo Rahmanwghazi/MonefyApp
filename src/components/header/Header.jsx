@@ -20,7 +20,6 @@ const Header = (props) =>{
               </button>
             </div>
           </div>
-       
           <div className="right-column text-center d-flex justify-content-center pe-0">
             <img id="img-fluid" className="h-auto mw-100"
               src={img} alt=""></img>
