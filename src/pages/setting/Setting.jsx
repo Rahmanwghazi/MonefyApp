@@ -2,15 +2,16 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import './Setting.css'
 import { Messaging } from "react-cssfx-loading/lib";
 import { formatRupiah } from "../../utils/FormatterRupiah";
-import { useGetAverageIncome } from "../../hooks/useGetAverageIncome";
+import { useGetAverageIncome } from "../../hooks/useGetAvgIncome";
 import SmallSidebar from "../../components/sidebar/SmallSidebar";
 import editPng from '../../assets/edit.png'
 import { EditAvgIncomeModal } from "../../components/modals/EditAvgIncomeModal";
 import { useGetUsername } from '../../hooks/useGetUsername';
 import { Link } from 'react-router-dom';
+import { EditUsernameModal } from '../../components/modals/EditUsernameModal';
 
 const Setting = (props) => {
-    const { loading, data } = useGetAverageIncome()
+    const { loadingGetAverageIncome, dataGetAverageIncome } = useGetAverageIncome()
     const { dataGetUsername, loadingGetUsername } = useGetUsername()
     return (
         <>
@@ -28,21 +29,21 @@ const Setting = (props) => {
                                 <p>Setting</p>
                             </div>
                             <div className="col">
-                                {loading || loadingGetUsername ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
+                                {loadingGetAverageIncome || loadingGetUsername ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
                             </div>
                         </div>
                         <h3 className="" style={{ color: "#EEEEEE" }} >Name</h3>
                         <h4 className="avgUser">{(dataGetUsername?.user.map(item => (item.name)))}</h4>
                         <div className="col mutation-button edit">
-                            <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target="#modalForm" ></img>
-                            <EditAvgIncomeModal data={dataGetUsername} />
+                            <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target="#modalFormName" ></img>
+                            <EditUsernameModal data={dataGetUsername} />
                         </div>
                         <br />
                         <h3 className="" style={{ color: "#EEEEEE" }} >Average monthly income</h3>
-                        <h4 className="avgUser">{formatRupiah(data?.user.map(item => (item.avg_income)))}</h4>
+                        <h4 className="avgUser">{formatRupiah(dataGetAverageIncome?.user.map(item => (item.avg_income)))}</h4>
                         <div className="col mutation-button edit">
                             <img src={editPng} alt="edit" data-bs-toggle="modal" data-bs-target="#modalForm" ></img>
-                            <EditAvgIncomeModal data={data} />
+                            <EditAvgIncomeModal data={dataGetAverageIncome} />
                         </div>
                         <Link to="/">
                         <button className="btn btn-fill text-white border-0 mt-5" onClick={() => props.auth.logout()} >

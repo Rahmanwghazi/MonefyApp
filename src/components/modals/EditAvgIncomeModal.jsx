@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Messaging } from "react-cssfx-loading/lib";
 import { useUpdateAverageIncome } from "../../hooks/useUpdateAverageIncome";
+import './Modal.css'
 
 export const EditAvgIncomeModal = (props) => {
     const initAvg = props.data?.user.map(item => (item.avg_income))
@@ -40,6 +41,7 @@ export const EditAvgIncomeModal = (props) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-body">
+                    <button type="button" className="close btn-close text-white mt-5" data-bs-dismiss="modal" aria-label="Close"></button>
                         <h5 className="label-modal edit">Edit</h5>
                         <div onSubmit={onUpdate}>
                             <div className="form-group text-white mt-5">
@@ -54,7 +56,6 @@ export const EditAvgIncomeModal = (props) => {
                 </div>
             </div>
         </div>
-
     )
 }
 

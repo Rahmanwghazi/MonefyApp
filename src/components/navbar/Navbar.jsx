@@ -8,12 +8,6 @@ const Navbar = (props) => {
   const { isAuthenticated } = props.auth
   const { dataGetUsername } = useGetUsername()
 
-  // useEffect(()=>{
-  //   if (isAuthenticated()) {
-  //     navigate('/dashboard');
-  //   }
-  // },[])
-
   return (
     <nav className="navbar navbar-expand-lg navbar-dark">
       <a href="/#">
@@ -52,15 +46,30 @@ const Navbar = (props) => {
                   <Link smooth to="#about" className="nav-link">About</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/dahsboard" className="nav-link" href="/#">Dashboard</Link>
+                  <Link to="/dashboard" className="nav-link" href="/#">Dashboard</Link>
                 </li>
               </ul>
             </div>
             <div className="modal-footer border-0 gap-3">
-              <Link to="/#">
-                <button className="btn btn-default btn-no-fill">Sign In</button>
-              </Link>
-              <button className="btn btn-fill border-0 text-white">Try Now</button>
+            {
+            !isAuthenticated() && (
+              <>
+                <button type="button" className="btn btn-default btn-no-fill" onClick={() => props.auth.login()}>
+                  Sign in
+                </button>
+                <button className="btn btn-fill text-white border-0" onClick={() => props.auth.login()} >
+                  Try Now
+                </button>
+              </>
+            )
+          }
+          {
+            isAuthenticated() && (
+              <p className="text-white">
+                Hi, {dataGetUsername?.user.map(item => (item.name))}
+              </p>
+            )
+          }
             </div>
           </div>
         </div>

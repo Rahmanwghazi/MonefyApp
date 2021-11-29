@@ -1,6 +1,7 @@
 import './SmallSidebar.css'
 import logo from '../../assets/logo.png'
 import { NavLink, Link } from "react-router-dom";
+import { RefreshPage } from '../../utils/Reloader';
 
 const SmallSidebar = () => {
     return (
@@ -30,19 +31,19 @@ const SmallSidebar = () => {
                             <div className="modal-body">
                                 <ul className="navbar-nav responsive me-auto mt-2 mt-lg-0">
                                     <li className="nav-items">
-                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/dashboard">Dashboard</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/dashboard" onClick={RefreshPage}>Dashboard</NavLink>
                                     </li>
                                     <li className="nav-items">
-                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/add-data">Add Data</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/add-data" onClick={RefreshPage}>Add Data</NavLink>
                                     </li>
                                     <li className="nav-items">
-                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/history">History</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/history" onClick={RefreshPage}>History</NavLink>
                                     </li>
                                     <li className="nav-items">
-                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/recommendation">Recommendation</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/recommendation" onClick={RefreshPage}>Recommendation</NavLink>
                                     </li>
                                     <li className="nav-items">
-                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/setting">Setting</NavLink>
+                                        <NavLink className={({ isActive }) => isActive ? "active" : ''} to="/setting" onClick={RefreshPage}>Setting</NavLink>
                                     </li>
                                 </ul>
                             </div>

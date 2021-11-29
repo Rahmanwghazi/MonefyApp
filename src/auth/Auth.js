@@ -32,7 +32,6 @@ export default class Auth {
       } else if (err) {
         history.replace('/');
         console.error(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
       }
     });
   }

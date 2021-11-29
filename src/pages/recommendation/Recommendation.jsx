@@ -2,13 +2,13 @@ import { Messaging } from 'react-cssfx-loading/lib'
 import BoxCard from '../../components/box-card/BoxCard'
 import Sidebar from '../../components/sidebar/Sidebar'
 import SmallSidebar from '../../components/sidebar/SmallSidebar'
-import { useGetAverageIncome } from '../../hooks/useGetAverageIncome'
+import { useGetAverageIncome } from '../../hooks/useGetAvgIncome'
 import { formatRupiah } from '../../utils/FormatterRupiah'
 import './Recommendation.css'
 
 const Recommendation = (props) => {
     const { isAuthenticated } = props.auth
-    const { loading, data } = useGetAverageIncome()
+    const { loadingGetAverageIncome, dataGetAverageIncome } = useGetAverageIncome()
 
     if (isAuthenticated()) {
         return (
@@ -27,10 +27,10 @@ const Recommendation = (props) => {
                                     <p>Recommendation</p>
                                 </div>
                                 <div className="col">
-                                    {loading ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
+                                    {loadingGetAverageIncome ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
                                 </div>
                             </div>
-                            {data?.user.map(item => (
+                            {dataGetAverageIncome?.user.map(item => (
                                 <>
                                     <div className="row">
                                         <div className="col-md-6">

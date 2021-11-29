@@ -35,7 +35,9 @@ export const EditHistoryModal = (props) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-body">
+                        <button type="button" className="close btn-close text-white mt-5" data-bs-dismiss="modal" aria-label="Close"></button>
                         <h5 className="label-modal edit">Edit</h5>
+
                         <div onSubmit={onUpdate}>
                             <div className="form-group text-white">
                                 <label>Amount  </label>

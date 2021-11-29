@@ -5,6 +5,7 @@ export const ConfirmDeleteModal = (props) => {
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-body">
+                        <button type="button" className="close btn-close text-white mt-5" data-bs-dismiss="modal" aria-label="Close"></button>
                         <p className="label-modal edit mb-5" style={{ fontWeight: "normal", fontSize: 20 }}>Confirmation Delete</p>
                         <div className="form-group text-white mt-2">
                             <label>Delete record {desc} ? </label>

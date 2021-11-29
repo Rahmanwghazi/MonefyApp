@@ -38,6 +38,13 @@ mutation MyMutation($avg_income: Int, $userId: String) {
   }
 }
 `
+export const UpdateUsername = gql`
+mutation MyMutation($name: String, $userId: String) {
+  update_user(_set: {name: $name}, where: {auth0_id: {_eq: $userId}}) {
+    affected_rows
+  }
+}
+`
 
 
 

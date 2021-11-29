@@ -24,7 +24,7 @@ const History = (props) => {
             variables: { id }
         })
     }
-
+    
     const updateRecord = (id, updatedRecord) => {
         updateRecordById({
             variables: {
