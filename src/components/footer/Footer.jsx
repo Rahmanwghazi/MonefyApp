@@ -1,6 +1,6 @@
 import './Footer.css'
 import logo from '../../assets/logo.png'
-import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 
 const Footer = () => {
     return(
@@ -15,19 +15,16 @@ const Footer = () => {
 							</div>
 							<nav className="list-unstyled">
 								<li className="list-space">
-									<a href="/#" className="list-menu">Home</a>
+									<Link smooth to="#header" className="list-menu">Home</Link>
 								</li>
 								<li className="list-space">
-									<a href="/#" className="list-menu">Features</a>
+								<Link smooth to="#feature" className="list-menu">Features</Link>
 								</li>
 								<li className="list-space">
-									<a href="/#" className="list-menu">Tips</a>
+								<Link smooth to="#tips" className="list-menu">Tips</Link>
 								</li>
 								<li className="list-space">
-									<a href="/#" className="list-menu">About</a>
-								</li>
-								<li className="list-space">
-									<Link to="/dashboard" href="/#" className="list-menu">Dashboard</Link>
+								<Link smooth to="#about" className="list-menu">About</Link>
 								</li>
 							</nav>
 						</div>
@@ -46,9 +43,6 @@ const Footer = () => {
 							</li>
 							<li className="list-space">
 								<a href="/#" className="list-menu">Analytic Tool</a>
-							</li>
-							<li className="list-space">
-								<a href="/#" className="list-menu">Story</a>
 							</li>
 						</nav>
 					</div>
@@ -79,7 +73,7 @@ const Footer = () => {
 								<a href="/#" className="list-menu">Help Center</a>
 							</li>
 							<li className="list-space">
-								<a href="/#" className="list-menu">Server Status</a>
+								<a href="/#" className="list-menu">FAQ</a>
 							</li>
 						</nav>
 					</div>

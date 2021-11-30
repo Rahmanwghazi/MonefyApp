@@ -11,7 +11,7 @@ import {
   getMainDefinition
 } from "@apollo/client/utilities";
 
-
+//const token = localStorage.getItem('auth0:id_token');
 const userId = localStorage.getItem('auth0:id_token:sub');
 
 const wsLink = new WebSocketLink({

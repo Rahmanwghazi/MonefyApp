@@ -1,3 +1,5 @@
-export const RefreshPage = ()=>{
-    window.location.reload();
+export function RefreshPage() {
+    setTimeout(function () {
+        window.location.reload();
+    }, 1);
 }

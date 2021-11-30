@@ -9,7 +9,6 @@ import './Recommendation.css'
 const Recommendation = (props) => {
     const { isAuthenticated } = props.auth
     const { loadingGetAverageIncome, dataGetAverageIncome } = useGetAverageIncome()
-
     if (isAuthenticated()) {
         return (
             <>
@@ -26,30 +25,31 @@ const Recommendation = (props) => {
                                 <div className="col" style={{ marginBottom: "-15px" }}>
                                     <p>Recommendation</p>
                                 </div>
-                                <div className="col">
-                                    {loadingGetAverageIncome ? <Messaging className="loader" color="#FD7014" width="15px" height="15px" /> : <br />}
+                            </div>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <BoxCard title="rule" type="card-body box-card-1" content="50/30/20 rule" avg={loadingGetAverageIncome
+                                        ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" />
+                                        : "your average monthly income: " + formatRupiah(dataGetAverageIncome?.user.map(item => (item.avg_income)))} />
+                                </div>
+                                <div className="col-md-6">
+                                    <BoxCard title="Needs (50%)" type="card-body box-card-2" content={loadingGetAverageIncome
+                                     ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" />
+                                        : formatRupiah((50 / 100) * dataGetAverageIncome?.user.map(item => (item.avg_income)))} />
                                 </div>
                             </div>
-                            {dataGetAverageIncome?.user.map(item => (
-                                <>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <BoxCard title="rule" type="card-body box-card-1" content="50/30/20 rule" avg={"your average monthly income: " + formatRupiah(item.avg_income)} />
-                                        </div>
-                                        <div className="col-md-6">
-                                            <BoxCard title="Needs (50%)" type="card-body box-card-2" content={formatRupiah((50 / 100) * item.avg_income)} />
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-md-6">
-                                            <BoxCard title="Wants (30%)" type="card-body box-card-3" content={formatRupiah((30 / 100) * item.avg_income)} />
-                                        </div>
-                                        <div className="col-md-6">
-                                            <BoxCard title="Savings (20%)" type="card-body box-card-4" content={formatRupiah((20 / 100) * item.avg_income)} />
-                                        </div>
-                                    </div>
-                                </>
-                            ))}
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <BoxCard title="Wants (30%)" type="card-body box-card-3" content={loadingGetAverageIncome
+                                     ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" />
+                                        : formatRupiah((30 / 100) * dataGetAverageIncome?.user.map(item => (item.avg_income)))} />
+                                </div>
+                                <div className="col-md-6">
+                                    <BoxCard title="Savings (20%)" type="card-body box-card-4" content={loadingGetAverageIncome
+                                     ? <Messaging className="loading-animation" color="#EEEEEE" width="15px" height="15px" />
+                                        : formatRupiah((20 / 100) * dataGetAverageIncome?.user.map(item => (item.avg_income)))} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

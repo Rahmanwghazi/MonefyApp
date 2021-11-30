@@ -40,7 +40,6 @@ query MyQuery($userId: String) {
 export const GetAverageIncome = gql`
 query MyQuery {
   user {
-    name
     avg_income
   }
 }
